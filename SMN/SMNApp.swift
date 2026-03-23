@@ -25,7 +25,7 @@ struct SMNApp: App {
 
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            ContentView().environment(ModelData())
         }
         .modelContainer(sharedModelContainer)
     }

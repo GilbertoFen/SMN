@@ -1,0 +1,18 @@
+[
+    {
+        "id": 1,
+        "hour": "12:00 pm",
+        "date": "04-12-2026",
+        "id_psycologist":2,
+        "commentary":"remoto",
+        "location": "San rafael chamapa"
+    },
+    {
+        "id": 2,
+        "hour": "1:00 pm",
+        "date": "04-12-2026",
+        "id_psycologist":2,
+        "commentary":"remoto",
+        "location": "San rafael chamapa 12"
+    }
+]
