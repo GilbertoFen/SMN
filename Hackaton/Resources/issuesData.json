@@ -1,0 +1,17 @@
+[
+    {
+        "id": 1,
+        "issue": "depresion",
+        "imageIssue": "face.smiling"
+    },
+    {
+        "id": 2,
+        "issue": "bipolar",
+        "imageIssue": "face.smiling"
+    },
+    {
+        "id": 3,
+        "issue": "tda",
+        "imageIssue": "face.smiling"
+    }
+]

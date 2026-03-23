@@ -1,0 +1,44 @@
+[
+    {
+        "id": 1,
+        "date": "2026-03-01",
+        "score": 2,
+        "emotion": "depresion"
+    },
+    {
+        "id": 2,
+        "date": "2026-03-05",
+        "score": 5,
+        "emotion": "depresion"
+    },
+    {
+        "id": 3,
+        "date": "2026-03-10",
+        "score": 7,
+        "emotion": "depresion"
+    },
+    {
+        "id": 4,
+        "date": "2026-03-15",
+        "score": 1,
+        "emotion": "depresion"
+    },
+    {
+        "id": 5,
+        "date": "2026-03-20",
+        "score": 4,
+        "emotion": "depresion"
+    },
+    {
+        "id": 6,
+        "date": "2026-03-25",
+        "score": 6,
+        "emotion": "depresion"
+    },
+    {
+        "id": 7,
+        "date": "2026-03-30",
+        "score": 4,
+        "emotion": "depresion"
+    }
+]
