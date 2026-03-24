@@ -1,15 +1,9 @@
-//
-//  AnimatedDropDownMenu.swift
-//  SMN
-//
-//  Created by Gil Avalos on 23/03/26.
-//
-
+// AnimatedDropdownMenu.swift
 import SwiftUI
 
 struct AnimatedDropdownMenu: View {
     @State private var isExpanded = false
-    var appointment: Appointment
+    var appointment: AppointmentModel  // <- AppointmentModel
 
     var body: some View {
         VStack(spacing: 0) {
@@ -46,7 +40,7 @@ struct AnimatedDropdownMenu: View {
                         }
                     }
 
-                    if !appointment.commentary.isEmpty {
+                    if !appointment.comment.isEmpty {
                         HStack(alignment: .top, spacing: 8) {
                             Image(systemName: "text.bubble.fill")
                                 .foregroundColor(.green.opacity(0.4))
@@ -54,7 +48,7 @@ struct AnimatedDropdownMenu: View {
                                 Text("Comentario")
                                     .font(.caption)
                                     .foregroundColor(.secondary)
-                                Text(appointment.commentary)
+                                Text(appointment.comment)
                                     .font(.subheadline)
                             }
                         }
@@ -85,5 +79,3 @@ struct AnimatedDropdownMenu: View {
         }
     }
 }
-
-

@@ -24,19 +24,11 @@ struct SwipeCardsView: View
             handleCardsChange(newCards)
         }
         .navigationDestination(item: $selectedCard) { card in
-            //TravelDetailView(card: card)
-            PsycologistDetailView(psycologist: PsycologistModel(
-                name: "Juan",
-                age: 19,
-                latitude: 19.4326,
-                longitude: -99.1332,
-                mode: ["online", "presencial"],
-                price: 800.0,
-                speciality: "Ansiedad",
-                rating: 3,
-                description: "Especialista en psicoterapeuta",
-                photoName: "psico1"
-            ))
+            if let psycologist = card.psycologist {
+                PsycologistDetailView(psycologist: psycologist)
+            } else {
+                Text("Psicólogo no disponible")
+            }
         }
     }
 
@@ -213,16 +205,14 @@ struct SwipeCardsView: View
     }
 }
 
-#Preview
-{
-    NavigationStack
-    {
+#Preview {
+    NavigationStack {
         SwipeCardsView(
             cards: [
-                TravelCard(title: "London", subtitle: "Historia y modernidad.", imageName: "psico1"),
-                TravelCard(title: "Tokyo", subtitle: "Tecnología y cultura.", imageName: "psico2"),
-                TravelCard(title: "Paris", subtitle: "Arte y romanticismo.", imageName: "psico3"),
-                TravelCard(title: "London", subtitle: "Historia y modernidad.", imageName: "psico4")
+                TravelCard(title: "Juan, Psicoterapeuta", subtitle: "Edo Mex, 19 años", imageName: "psico1", psycologist: nil),
+                TravelCard(title: "Arturo, Psicólogo", subtitle: "CDMX, 25 años", imageName: "psico2", psycologist: nil),
+                TravelCard(title: "Joaquin, Familiar", subtitle: "CDMX, 28 años", imageName: "psico3", psycologist: nil),
+                TravelCard(title: "Paola, rehabilitación", subtitle: "Edo Mex, 25 años", imageName: "psico4", psycologist: nil)
             ]
         )
     }

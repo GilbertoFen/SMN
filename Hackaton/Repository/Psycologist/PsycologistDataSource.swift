@@ -10,11 +10,11 @@ import FirebaseFirestore
 import FirebaseFirestoreCombineSwift
 import CoreLocation
 
-struct PsycologistModel: Decodable, Identifiable, Encodable, Equatable{
+struct PsycologistModel: Decodable, Identifiable, Encodable, Equatable, Hashable {
     @DocumentID var id: String?
     
     let name: String
-    let age: Double
+    let age: Int
     let latitude: Double
     let longitude: Double
     let mode: [String]

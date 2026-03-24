@@ -1,41 +1,27 @@
-//
-//  Calendar.swift
-//  SMN
-//
-//  Created by Gil Avalos on 23/03/26.
-//
-
+// CalendarView.swift
 import SwiftUI
-import UIKit
 
 struct CalendarView: View {
     @State private var selectedDate = Date()
     @State private var currentMonth = Date()
-    var appointments: [Appointment]
+    var appointments: [AppointmentModel]  // <- AppointmentModel en lugar de Appointment
 
     private let calendar = Calendar.current
     private let columns = Array(repeating: GridItem(.flexible()), count: 7)
     private let weekDays = ["Dom", "Lun", "Mar", "Mié", "Jue", "Vie", "Sáb"]
 
     var appointmentDaySet: Set<String> {
-        let formatter = DateFormatter()
-        formatter.dateFormat = "yyyy-MM-dd"
-        return Set(appointments.compactMap { appt -> String? in
-            return appt.date
-        })
+        Set(appointments.map { $0.date })
     }
 
     var daysInMonth: [Date?] {
         guard
-            let monthStart = calendar.date(
-                from: calendar.dateComponents([.year, .month], from: currentMonth)
-            ),
+            let monthStart = calendar.date(from: calendar.dateComponents([.year, .month], from: currentMonth)),
             let range = calendar.range(of: .day, in: .month, for: monthStart)
         else { return [] }
 
         let firstWeekday = calendar.component(.weekday, from: monthStart) - 1
         var days: [Date?] = Array(repeating: nil, count: firstWeekday)
-
         for day in range {
             if let date = calendar.date(byAdding: .day, value: day - 1, to: monthStart) {
                 days.append(date)
@@ -57,17 +43,10 @@ struct CalendarView: View {
         return f.string(from: date)
     }
 
-    func isToday(_ date: Date) -> Bool {
-        calendar.isDateInToday(date)
-    }
+    func isToday(_ date: Date) -> Bool { calendar.isDateInToday(date) }
+    func isSelected(_ date: Date) -> Bool { calendar.isDate(date, inSameDayAs: selectedDate) }
+    func hasAppointment(_ date: Date) -> Bool { appointmentDaySet.contains(dateKey(date)) }
 
-    func isSelected(_ date: Date) -> Bool {
-        calendar.isDate(date, inSameDayAs: selectedDate)
-    }
-
-    func hasAppointment(_ date: Date) -> Bool {
-        appointmentDaySet.contains(dateKey(date))
-    }
     var body: some View {
         VStack(spacing: 12) {
             HStack {
@@ -115,56 +94,48 @@ struct CalendarView: View {
         }
         .padding(.horizontal, 10)
         .background(Color(.systemBackground))
-        
     }
 
     func changeMonth(by value: Int) {
         if let newMonth = calendar.date(byAdding: .month, value: value, to: currentMonth) {
-            withAnimation(.easeInOut(duration: 0.2)) {
-                currentMonth = newMonth
-            }
+            withAnimation(.easeInOut(duration: 0.2)) { currentMonth = newMonth }
         }
     }
-}
+    
+    struct DayCell: View {
+        let date: Date
+        let isToday: Bool
+        let isSelected: Bool
+        let hasAppointment: Bool
 
-struct DayCell: View {
-    let date: Date
-    let isToday: Bool
-    let isSelected: Bool
-    let hasAppointment: Bool
+        private var dayNumber: String {
+            "\(Calendar.current.component(.day, from: date))"
+        }
 
-    private var dayNumber: String {
-        let calendar = Calendar.current
-        return "\(calendar.component(.day, from: date))"
-    }
-
-    var body: some View {
-        ZStack {
-            if isSelected {
-                Circle()
-                    .fill(Color.green.opacity(0.5))
-                    .frame(width: 34, height: 34)
-            } else if isToday {
-                Circle()
-                    .stroke(Color.green.opacity(0.6), lineWidth: 1.5)
-                    .frame(width: 34, height: 34)
-            }
-
-            VStack(spacing: 2) {
-                Text(dayNumber)
-                    .font(.system(size: 15, weight: isToday || isSelected ? .bold : .regular))
-                    .foregroundColor(isSelected ? .white : isToday ? .green.opacity(0.7) : .primary)
-                if hasAppointment {
+        var body: some View {
+            ZStack {
+                if isSelected {
                     Circle()
-                        .fill(isSelected ? Color.white : Color.green.opacity(0.6))
-                        .frame(width: 5, height: 5)
+                        .fill(Color.green.opacity(0.5))
+                        .frame(width: 34, height: 34)
+                } else if isToday {
+                    Circle()
+                        .stroke(Color.green.opacity(0.6), lineWidth: 1.5)
+                        .frame(width: 34, height: 34)
+                }
+
+                VStack(spacing: 2) {
+                    Text(dayNumber)
+                        .font(.system(size: 15, weight: isToday || isSelected ? .bold : .regular))
+                        .foregroundColor(isSelected ? .white : isToday ? .green.opacity(0.7) : .primary)
+                    if hasAppointment {
+                        Circle()
+                            .fill(isSelected ? Color.white : Color.green.opacity(0.6))
+                            .frame(width: 5, height: 5)
+                    }
                 }
             }
+            .frame(height: 42)
         }
-        .frame(height: 42)
     }
-}
-
-#Preview {
-    CalendarView(appointments: ModelData().appointments)
 }

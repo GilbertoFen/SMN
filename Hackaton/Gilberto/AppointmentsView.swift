@@ -1,12 +1,25 @@
+//
+//  AppointmentsView 2.swift
+//  Hackaton
+//
+//  Created by Annete Morado on 24/03/26.
+//
 import SwiftUI
 
 struct AppointmentsView: View {
-    @State private var modelData = ModelData()
+    @ObservedObject var authViewModel: AuthViewModel
+    @StateObject var appointmentViewModel: AppointmentViewModel
+
+    init(authViewModel: AuthViewModel) {
+        self.authViewModel = authViewModel
+        _appointmentViewModel = StateObject(wrappedValue: AppointmentViewModel(userId: authViewModel.currentUserId))
+    }
+
     var body: some View {
-        ContentView()
+        ContentView(appointmentViewModel: appointmentViewModel)
     }
 }
 
 #Preview {
-    AppointmentsView()
+    AppointmentsView(authViewModel: AuthViewModel())
 }

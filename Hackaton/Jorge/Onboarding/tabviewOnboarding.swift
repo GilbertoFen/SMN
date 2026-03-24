@@ -1,20 +1,15 @@
 import SwiftUI
 
-struct tabviewOnboarding: View
-{
+struct tabviewOnboarding: View {
     @State private var currentPage = 0
     @State private var goToHome = false
+    @ObservedObject var authViewModel: AuthViewModel
 
-    var body: some View
-    {
-        if goToHome
-        {
-            HomeView(currentUserId: "test_user_123")
-        }
-        else
-        {
-            TabView(selection: $currentPage)
-            {
+    var body: some View {
+        if goToHome {
+            tabviewapp(authViewModel: authViewModel)
+        } else {
+            TabView(selection: $currentPage) {
                 Onboarding0(onNext: {
                     withAnimation { currentPage = 1 }
                 })
@@ -36,7 +31,6 @@ struct tabviewOnboarding: View
     }
 }
 
-#Preview
-{
-    tabviewOnboarding()
+#Preview {
+    tabviewOnboarding(authViewModel: AuthViewModel())
 }

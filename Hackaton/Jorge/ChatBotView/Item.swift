@@ -1,6 +1,4 @@
-
 import Foundation
-
 
 struct Item: Identifiable, Equatable
 {

@@ -1,28 +1,20 @@
-//
-//  ContentView.swift
-//  SMN
-//
-//  Created by Gil Avalos on 23/03/26.
-//
-
-import SwiftUI
-import SwiftData
-
-//  ContentView.swift
+// AppointmentsContentView.swift
 import SwiftUI
 
 struct ContentView: View {
-    @State private var modelData = ModelData()
+    @ObservedObject var appointmentViewModel: AppointmentViewModel
     @State private var showAllAppointments = false
 
     var body: some View {
         NavigationStack {
             ScrollView {
                 VStack(spacing: 0) {
-                    CalendarView(appointments: modelData.appointments)
-                    
 
-                    NavigationLink(destination: ScheduleView()) {
+                    // Calendario con citas reales
+                    CalendarView(appointments: appointmentViewModel.appointments)
+
+                    // Botón agendar cita
+                    NavigationLink(destination: HomeView2(psycologistViewModel: PsycologistViewModel())) {
                         HStack {
                             Image(systemName: "calendar.badge.plus")
                             Text("Agenda tu cita")
@@ -37,6 +29,7 @@ struct ContentView: View {
                         .padding(.vertical, 12)
                     }
 
+                    // Lista de citas
                     VStack(alignment: .leading, spacing: 8) {
                         Text("Tus citas recientes")
                             .font(.system(size: 18, weight: .bold))
@@ -44,8 +37,8 @@ struct ContentView: View {
                             .padding(.top, 8)
 
                         let displayed = showAllAppointments
-                            ? modelData.appointments
-                            : Array(modelData.appointments.prefix(3))
+                            ? appointmentViewModel.appointments
+                            : Array(appointmentViewModel.appointments.prefix(3))
 
                         ForEach(displayed) { appointment in
                             AppointmentRow(appointment: appointment)
@@ -53,7 +46,7 @@ struct ContentView: View {
                         }
                     }
 
-                    if modelData.appointments.count > 3 {
+                    if appointmentViewModel.appointments.count > 3 {
                         Button(action: {
                             withAnimation { showAllAppointments.toggle() }
                         }) {
@@ -67,9 +60,9 @@ struct ContentView: View {
             }
             .navigationTitle("Mis Citas")
             .navigationBarTitleDisplayMode(.large)
+            .onAppear {
+                appointmentViewModel.getAppointments()
+            }
         }
-        .environment(modelData)
     }
 }
-
-

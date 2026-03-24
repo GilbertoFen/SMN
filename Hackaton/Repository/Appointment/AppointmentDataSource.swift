@@ -15,6 +15,9 @@ struct AppointmentModel: Identifiable, Decodable, Encodable {
     let hour: String
     let id_psycologist: String
     let id_user: String
+    let estado: String
+    let location: String
+    let calificacion: Int
 }
 
 final class AppointmentDataSource {

@@ -47,7 +47,10 @@ final class PsycologistDetailViewModel: ObservableObject {
             date: date,
             hour: hour,
             id_psycologist: psycologistId,
-            id_user: currentUserId
+            id_user: currentUserId,
+            estado: "pendiente",
+            location: "Consultorio virtual",
+            calificacion: 0
         )
         appointmentRepository.addAppointment(appointment: appointment) { [weak self] result in
             if case .failure(let error) = result {
