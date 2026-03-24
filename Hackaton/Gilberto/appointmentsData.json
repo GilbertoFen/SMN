@@ -1,0 +1,42 @@
+[
+  {
+    "id": 1,
+    "hour": "10:00 AM",
+    "date": "2026-03-25",
+    "id_psycologist": 101,
+    "commentary": "Primera sesión de evaluación",
+    "location": "Consultorio Norte, Piso 3",
+    "estado": "pendiente",
+    "calificacion": 0
+  },
+  {
+    "id": 2,
+    "hour": "02:30 PM",
+    "date": "2026-03-18",
+    "id_psycologist": 102,
+    "commentary": "Seguimiento mensual",
+    "location": "Clínica Central, Consultorio 7",
+    "estado": "realizada",
+    "calificacion": 4
+  },
+  {
+    "id": 3,
+    "hour": "11:00 AM",
+    "date": "2026-03-10",
+    "id_psycologist": 101,
+    "commentary": "",
+    "location": "Consultorio Norte, Piso 3",
+    "estado": "realizada",
+    "calificacion": 5
+  },
+  {
+    "id": 4,
+    "hour": "09:00 AM",
+    "date": "2026-02-28",
+    "id_psycologist": 103,
+    "commentary": "Sesión de cierre",
+    "location": "Centro de Salud Sur",
+    "estado": "cancelada",
+    "calificacion": 0
+  }
+]

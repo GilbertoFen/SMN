@@ -1,0 +1,182 @@
+[
+  {
+    "id": 1,
+    "title": "Tristeza persistente y pérdida de interés",
+    "description": "Depresión",
+    "image": "poñoñontite",
+    "colorHex": "4A90D9",
+    "isAsset": true,
+    "symptoms": [
+      "Tristeza profunda la mayor parte del día",
+      "Pérdida de interés en actividades que antes disfrutabas",
+      "Cambios en el apetito o el peso",
+      "Dificultad para dormir o dormir demasiado",
+      "Fatiga o falta de energía constante",
+      "Dificultad para concentrarse o tomar decisiones"
+    ],
+    "treatment": [
+      "Terapia cognitivo-conductual (TCC)",
+      "Medicación antidepresiva bajo supervisión médica",
+      "Actividad física regular (30 min al día)",
+      "Red de apoyo social y familiar",
+      "Técnicas de mindfulness y meditación"
+    ],
+    "recommendations": [
+            "Establece una rutina diaria con horarios fijos",
+            "Sal a caminar al menos 20 minutos al día",
+            "Habla con alguien de confianza sobre cómo te sientes",
+            "Evita el aislamiento social",
+            "Reduce el consumo de alcohol y cafeína"
+        ]
+  },
+  {
+    "id": 2,
+    "title": "Preocupación excesiva y constante",
+    "description": "Ansiedad",
+    "image": "poñoñonansioso",
+    "colorHex": "E8A838",
+    "isAsset": true,
+    "symptoms": [
+      "Preocupación intensa y difícil de controlar",
+      "Tensión muscular y nerviosismo",
+      "Ritmo cardíaco acelerado",
+      "Dificultad para dormir",
+      "Irritabilidad frecuente",
+      "Sensación de peligro inminente"
+    ],
+    "treatment": [
+      "Terapia de exposición gradual",
+      "Técnicas de respiración diafragmática",
+      "Medicación ansiolítica si es necesario",
+      "Reducción de cafeína y estimulantes",
+      "Rutinas de relajación muscular progresiva"
+    ],
+    "recommendations": [
+        "Practica respiración 4-7-8 antes de dormir",
+        "Limita el tiempo en redes sociales",
+        "Haz una lista de pendientes para vaciar la mente",
+        "Sal a la naturaleza al menos una vez por semana",
+        "Evita revisar noticias en exceso"
+    ]
+  },
+  {
+    "id": 3,
+    "title": "Cambios extremos de humor",
+    "description": "Trastorno Bipolar",
+    "image": "poñoñonbipolar",
+    "colorHex": "9B59B6",
+    "isAsset": true,
+    "symptoms": [
+      "Episodios de euforia extrema (manía)",
+      "Episodios de depresión profunda",
+      "Cambios bruscos en los niveles de energía",
+      "Necesidad reducida de dormir en fases maníacas",
+      "Impulsividad y decisiones arriesgadas",
+      "Pensamientos acelerados y habla rápida"
+    ],
+    "treatment": [
+      "Estabilizadores del ánimo (litio, valproato)",
+      "Psicoeducación para paciente y familia",
+      "Terapia cognitivo-conductual",
+      "Monitoreo regular del estado de ánimo",
+      "Rutinas de sueño estrictas"
+    ],
+    "recommendations": [
+        "Mantén un diario de estado de ánimo diario",
+        "Respeta horarios de sueño sin excepciones",
+        "Informa a personas cercanas sobre tu condición",
+        "Evita decisiones importantes en episodios intensos",
+        "Asiste puntualmente a tus citas médicas"
+    ]
+  },
+  {
+    "id": 4,
+    "title": "Recuerdos intrusivos de eventos traumáticos",
+    "description": "TEPT",
+    "image": "poñoñonenojayo",
+    "colorHex": "E74C3C",
+    "isAsset": true,
+    "symptoms": [
+      "Flashbacks o recuerdos intrusivos del trauma",
+      "Pesadillas recurrentes",
+      "Evitación de lugares o situaciones relacionadas",
+      "Hipervigilancia y estado de alerta constante",
+      "Dificultad para sentir emociones positivas",
+      "Sensación de desapego de los demás"
+    ],
+    "treatment": [
+      "EMDR (Desensibilización por movimientos oculares)",
+      "Terapia de procesamiento cognitivo",
+      "Terapia de exposición prolongada",
+      "Grupos de apoyo para sobrevivientes",
+      "Técnicas de regulación emocional"
+    ],
+    "recommendations": [
+        "Practica grounding: nombra 5 cosas que puedes ver ahora",
+        "Crea un espacio seguro físico en tu hogar",
+        "No te expongas a noticias o contenido que detone recuerdos",
+        "Escribe en un diario sin juzgar lo que sientes",
+        "Acepta ayuda, no tienes que procesarlo solo"
+    ]
+  },
+  {
+    "id": 5,
+    "title": "Pensamientos y comportamientos repetitivos",
+    "description": "TOC",
+    "image": "poñoñontoc",
+    "isAsset": true,
+    "colorHex": "1ABC9C",
+    "symptoms": [
+      "Pensamientos obsesivos e intrusivos",
+      "Rituales o compulsiones para reducir la ansiedad",
+      "Necesidad de orden o simetría extrema",
+      "Miedo persistente a contaminar o ser contaminado",
+      "Revisión repetitiva de acciones (puertas, llaves)",
+      "Interferencia significativa en la vida diaria"
+    ],
+    "treatment": [
+      "Terapia de exposición y prevención de respuesta (EPR)",
+      "Inhibidores selectivos de recaptación de serotonina (ISRS)",
+      "Terapia cognitiva para reestructurar pensamientos",
+      "Apoyo de grupos especializados en TOC",
+      "Psicoeducación para familia"
+    ],
+    "recommendations": [
+        "Registra cuándo aparecen los pensamientos obsesivos",
+        "Practica retrasar el ritual 5 minutos cada vez",
+        "Habla abiertamente con tu terapeuta sin vergüenza",
+        "Reduce el estrés con actividades creativas",
+        "Evita buscar reaseguramiento constantemente con otros"
+    ]
+  },
+  {
+    "id": 6,
+    "title": "Miedo intenso a situaciones sociales",
+    "description": "Fobia Social",
+    "image": "ansiedad",
+    "isAsset": true,
+    "colorHex": "F39C12",
+    "symptoms": [
+      "Miedo intenso a ser juzgado o humillado",
+      "Evitación de situaciones sociales",
+      "Rubor, sudoración o temblores en público",
+      "Dificultad para hablar en grupo",
+      "Ansiedad anticipatoria días antes de un evento",
+      "Baja autoestima en contextos sociales"
+    ],
+    "treatment": [
+      "Terapia cognitivo-conductual grupal",
+      "Entrenamiento en habilidades sociales",
+      "Exposición gradual a situaciones sociales",
+      "Medicación en casos severos (beta-bloqueadores, ISRS)",
+      "Role-playing y simulación de situaciones"
+    ],
+    "recommendations": [
+        "Empieza con interacciones pequeñas y seguras",
+        "Prepara temas de conversación antes de eventos sociales",
+        "Celebra cada interacción positiva por pequeña que sea",
+        "Practica frente al espejo o con personas de confianza",
+        "Recuerda que los demás están más enfocados en sí mismos"
+    ]
+  }
+]

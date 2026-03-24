@@ -9,8 +9,6 @@ import Foundation
 
 public enum Tab: String, Codable {
     case home
+    case stats
     case profile
-    case settings
-    case calendar
-    case diary
 }

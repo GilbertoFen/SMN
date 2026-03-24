@@ -1,29 +1,39 @@
-//
-//  MapView.swift
-//  Hackaton
-//
-//  Created by Annete Morado on 23/03/26.
-//
-
 import SwiftUI
 import MapKit
 
 struct MapView: View {
-    var coordinate: CLLocationCoordinate2D
-    
+    @ObservedObject var psycologistViewModel: PsycologistViewModel
+    @State private var position: MapCameraPosition = .automatic
+
     var body: some View {
-        Map(position: .constant(.region(region)))
-    }
-    
-    private var region: MKCoordinateRegion {
-            MKCoordinateRegion(
-                center: coordinate,
-                span: MKCoordinateSpan(latitudeDelta: 0.2, longitudeDelta: 0.2)
-            )
+        Map(position: $position) {
+            ForEach(psycologistViewModel.psycologists) { psycologist in
+                Marker(psycologist.name, coordinate: psycologist.coordinate)
+                    .tint(.indigo)
+            }
         }
+        .mapStyle(.standard)         // Normal (default)
+        .mapStyle(.hybrid)           // Satélite + calles
+        .mapStyle(.imagery)
+        .onAppear {
+            centerMapIfNeeded()
+        }
+        .onChange(of: psycologistViewModel.psycologists) { _, psycologists in
+            centerMapIfNeeded()
+        }
+    }
+
+    private func centerMapIfNeeded() {
+        guard let first = psycologistViewModel.psycologists.first else { return }
+        withAnimation {
+            position = .region(MKCoordinateRegion(
+                center: first.coordinate,
+                span: MKCoordinateSpan(latitudeDelta: 0.05, longitudeDelta: 0.05)
+            ))
+        }
+    }
 }
 
 #Preview {
-    MapView(coordinate: CLLocationCoordinate2D(latitude: 34.011_286, longitude: -116.166_868))
+    MapView(psycologistViewModel: PsycologistViewModel())
 }
-
